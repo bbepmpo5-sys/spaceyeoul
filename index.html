@@ -1,30 +1,82 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>주의사항 & 안내</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주의사항 &amp; 안내</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    html { font-size: 200%; }   /* 기본 폰트 크기를 2배 */
-    body{
-      margin:0;padding:0;font-family:'Noto Sans KR',sans-serif;
-      line-height:1.6;background:#f8f8f8;color:#333;
-    }
-    .hero{ width:70%;height:auto;display:block;margin:0 auto; }
-    .container{ max-width:900px;margin:0 auto;padding:20px;background:#fff;
-                box-shadow:0 0 20px rgba(0,0,0,.1); }
-    h1{font-size:2rem;color:#222;margin:.5em;text-align:center;}
-    h2{font-size:1.4rem;color:#111;margin:1.5em 0 .5em;border-left:5px solid #ffb200;padding-left:.5em;}
-    ol,ul{margin-left:1.5em;margin-bottom:1em;}
-    li{margin-bottom:.5em;}
-    .warning{background:#fffcf4;border-left:5px solid #ff6f60;padding:.5em 1em;margin:1em 0;font-weight:600;color:#a00;}
-    .note{background:#e8f4ff;border-left:5px solid #4a89dc;padding:.5em 1em;margin:1em 0;font-weight:600;color:#004;}
-  </style>
+<style>
+/* ── 1. 기본 레이아웃 ────────────────────────────────────────────────── */
+/* root font-size 를 100% 으로 두고, 필요시 변수를 통해 배율 조정 */
+:root{
+  --scale: 1;         /* 1 = 100%, 1.25 = 125%, 2 = 200% 등 */
+  font-size: calc(100% * var(--scale));
+}
+
+body{
+  margin:0; padding:0;
+  font-family:'Noto Sans KR',sans-serif;
+  line-height:1.6;
+  background:#f8f8f8; color:#333;
+}
+
+/* ── 2. 주 화면 ─────────────────────────────────────────────────────── */
+.hero{
+  width:70%; height:auto; display:block; margin:0 auto;
+}
+
+.container{
+  max-width:900px;   /* 고정값을 유지하지만, 모바일에서는 화면 폭에 따라 줄어들게 */
+  width:90vw;        /* 화면 폭 기준 90% */
+  margin:0 auto;
+  padding:20px;
+  background:#fff;
+  box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+/* 텍스트 스타일 */
+h1{font-size:2rem;color:#222;margin:.5em;text-align:center;}
+h2{font-size:1.4rem;color:#111;margin:1.5em 0 .5em;border-left:5px solid #ffb200;padding-left:.5em;}
+ol, ul{margin-left:1.5em;margin-bottom:1em;}
+li{margin-bottom:.5em;}
+
+/* 경고와 참고 문구 */
+.warning{background:#fffcf4;border-left:5px solid #ff6f60;padding:.5em 1em;margin:1em 0;font-weight:600;color:#a00;}
+.note{background:#e8f4ff;border-left:5px solid #4a89dc;padding:.5em 1em;margin:1em 0;font-weight:600;color:#004;}
+
+/* ── 3. 반응형 메디어 쿼리 ──────────────────────────────────── */
+/* mobile (≤ 600px) - 가장 작은 화면에 맞춰 배율을 낮춰줍니다. */
+@media (max-width:600px){
+  :root{ --scale: 0.8; }  /* 80% 으로 축소  */
+  .container{ padding:15px; } /* 내적 여백 조금 감소 */
+}
+
+/* tablet (601px–899px) - 기본 배율 1.0 과 90% 폭을 활용 */
+@media (min-width:601px) and (max-width:899px){
+  :root{ --scale: 0.9; }  /* 90% 으로 조정  */
+  .hero{ width:90%; }
+}
+
+/* desktop (≥ 900px) - 데스크탑 화면은 원래 200% 배율(32px)로 표시 */
+@media (min-width:900px){
+  :root{ --scale: 2; }
+  .hero{ width:60%; }
+}
+</style>
 </head>
+<body>
+  <div class="container">
+    <h1>주의사항</h1>
+    <h2>⚠️ 중요한 알림</h2>
+    <p class="warning">이곳은 중요한 경고문구입니다.</p>
+    <p class="note">이곳은 참고 문구입니다.</p>
+    <!-- 예시 아이콘 -->
+    <p><i class="fa-solid fa-mobile-screen-button"></i> 모바일에서도 보기 좋게 적합화 시도!</p>
+  </div>
+</body>
 </html>
 
 
@@ -153,6 +205,7 @@
 
 </body>
 </html>
+
 
 
 

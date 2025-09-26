@@ -16,8 +16,8 @@
 body {
     margin: 0;
     font-family: 'Noto Sans KR', sans-serif;
-    /* 🔥 줄 간격을 1.4에서 1.3으로 더 줄였습니다. 🔥 */
-    line-height: 1.3; 
+    /* 🔥 줄 간격을 1.3에서 1.25로 더 줄여 글자 공백을 최소화했습니다. 🔥 */
+    line-height: 1.25; 
     background: #f8f8f8;
     color: #333;
 }
@@ -34,7 +34,6 @@ body {
 }
 
 /* ===== 이미지 ===== */
-/* .poster (위치 사진)는 가로 100% 유지 */
 .poster {
     display: block;
     width: 100%;
@@ -46,37 +45,36 @@ body {
 .trash-images-row {
     display: flex;
     justify-content: space-between;
-    /* 🔥 이미지 간 간격 20px 설정 🔥 */
     gap: 20px; 
     margin-bottom: 1rem;
     
-    /* 🔥 검은색 얇은 테두리 추가 🔥 */
     border: 1px solid black; 
-    padding: 5px; /* 테두리와 이미지 사이 여백 */
+    padding: 5px; 
 }
 
-/* .srg와 .srgbw의 세로 크기를 명확히 제한 및 가로줄 배치 */
+/* .srg와 .srgbw 이미지 스타일 */
 .srg,
 .srgbw {
     display: block;
-    /* 가로 50%로 설정 (20px 간격 반영: 50% - 10px) */
-    width: calc(50% - 10px); 
+    /* 🔥 50:50 비율로 꽉 채우기 위해 20px 간격과 5px 패딩을 고려하여 width 계산 🔥 */
+    width: calc(50% - 15px); 
     flex-shrink: 0;
     
-    /* 기존 높이 제한 유지 */
     height: 30vh; 
     max-height: 300px; 
-    object-fit: contain; 
+    
+    /* 🔥 50:50 비율로 컨테이너에 꽉 차도록 설정 🔥 */
+    object-fit: cover; 
     object-position: top center;
     
     margin: 0; 
 }
 
 
-/* ===== 목록 스타일 수정 (이전 요청 반영) ===== */
+/* ===== 목록 스타일 ===== */
 /* li 항목 간에 여백을 추가합니다. */
 .container li {
-    margin-bottom: 0.75rem; /* 항목 아래쪽에 여백은 유지 */
+    margin-bottom: 0.75rem; 
 }
 
 /* ol 리스트의 숫자가 밀리지 않도록 조정합니다. */
@@ -86,17 +84,17 @@ ol {
 }
 /* ul 리스트의 기본 기호를 제거하고 ◾로 대체합니다. */
 ul {
-    padding-left: 20px; /* 들여쓰기 유지 */
-    list-style: none; /* 기본 기호 제거 */
+    padding-left: 20px; 
+    list-style: none; 
 }
 /* <ul> 태그의 <li> 앞에 ◾ 기호를 삽입합니다. */
 ul li::before {
     content: "◾";
-    color: #ffb200; /* 기호 색상 (주황색 계열) */
+    color: #ffb200; 
     font-weight: bold;
     display: inline-block;
-    width: 1em; /* 기호가 차지하는 공간 확보 */
-    margin-left: -1em; /* 기호를 왼쪽으로 밀어서 들여쓰기 라인에 맞춤 */
+    width: 1em; 
+    margin-left: -1em; 
 }
 
 
@@ -130,13 +128,20 @@ h1 {
 }
 h2 {
     font-size: 1.375rem;
-    margin: 2rem 0 .5rem;
+    /* 🔥 H2 아래 마진을 최소화하여 다음 글씨와의 간격을 줄였습니다. 🔥 */
+    margin: 2rem 0 0.15rem; 
     color: #111;
     display: flex;
     align-items: center;
     border-left: 5px solid #ffb200;
     padding-left: .5em;
 }
+
+/* <h2> 제목 바로 밑에 오는 첫 번째 요소의 상단 마진을 줄여 간격 최소화 */
+h2 + ul, h2 + ol {
+    margin-top: 0.25rem;
+}
+
 p {
     margin: .5rem 0;
 }
@@ -157,20 +162,29 @@ p {
     margin-top: .25rem;
     color: #555;
 }
+
+/* 🔥 유튜브 섹션 스타일 수정 (가운데 정렬 및 선) 🔥 */
 .youtube-footer {
     padding: 2rem 1rem;
     background: #fafafa;
-    text-align: center;
+    /* 🔥 자식 요소들을 가운데 정렬합니다. 🔥 */
+    text-align: center; 
 }
 .yt-title {
     font-size: 1.375rem;
     margin-bottom: 1rem;
+    
+    /* 🔥 검은색 얇은 선 및 가운데 정렬 🔥 */
+    border-top: 1px solid black;
+    padding-top: 1rem;
+    text-align: center; 
 }
 .video-wrapper {
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin: auto;
+    /* 🔥 블록 요소를 가운데 정렬합니다. 🔥 */
+    margin: auto; 
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
@@ -247,12 +261,12 @@ p {
         </ul>
         
         <div class="trash-images-row">
-                    <img class="srg"
-                src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EA%B1%B8%EB%A0%A4%EC%9E%88%EB%8A%94%EC%82%AC%EC%A7%84.jpg?raw=true"
-                alt="쓰레기통">
                     <img class="srgbw"
                 src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EB%B0%B0%EC%B6%9C%EC%9C%84%EC%B9%98.jpg?raw=true"
                 alt="쓰봉 배출위치">
+                    <img class="srg"
+                src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EA%B1%B8%EB%A0%A4%EC%9E%88%EB%8A%94%EC%82%AC%EC%A7%84.jpg?raw=true"
+                alt="쓰레기통">
         </div>
 
         <div class="youtube-footer">

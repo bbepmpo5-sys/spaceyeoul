@@ -5,6 +5,30 @@
 <title>주의사항 &amp; 안내</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 <style>
+/* ===== 전역 설정 ===== */
+:root{ --scale:1; font-size:calc(100% * var(--scale)); }
+body{ margin:0; font-family:'Noto Sans KR',sans-serif; background:#f8f8f8; }
+
+/* ===== 컨테이너 ===== */
+.container{
+  max-width:900px;
+  width:90vw;               /* 모바일 시 90% 폭이 기준 */
+  margin:0 auto;            /* 가로 중앙 정렬 */
+  padding:20px;             /* 안쪽 여백 (필요에 따라 조절) */
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  box-sizing:border-box;    /* padding이 폭을 바꾸지 않게 함 */
+}
+
+/* ===== 이미지 ===== */
+.poster,
+.srg,
+.srgbw{
+  display:block;            /* block 으로 인라인 스페이스 제거 */
+  width:100%;               /* 컨테이너 폭에 딱 맞춤 */
+  height:auto;
+  transform:scale(0.5
+
 :root { --scale:1; font-size:calc(100% * var(--scale)); }
 
 body { margin:0; font-family:'Noto Sans KR',sans-serif; background:#f8f8f8; }
@@ -136,6 +160,7 @@ p{margin:.5rem 0;}
   </div> <!-- .container -->
 </body>
 </html>
+
 
 
 

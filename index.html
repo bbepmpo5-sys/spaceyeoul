@@ -18,16 +18,18 @@ p{margin:0.5rem 0;}
 .warning{color:#c00;}
 .warning-list li{margin-bottom:.75rem;}
 .warning-list small{display:block; margin-top:.25rem; color:#555;}
-.poster{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:2rem;}
-/* trash‑bag & 배출위치 공통 클래스 */
-.srg{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:2rem;}
-.srgbw{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:2rem;}
+.poster{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:1rem;}
+.srg{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:1rem;}
+.srgbw{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:1rem;}
 .youtube-footer{padding:2rem 1rem; background:#fafafa; text-align:center;}
 .yt-title{font-size:1.375rem; margin-bottom:1rem;}
 .video-wrapper{position:relative; width:100%; max-width:700px; margin:auto; padding-bottom:56.25%; height:0; overflow:hidden;}
 .video-wrapper iframe{position:absolute; top:0; left:0; width:100%; height:100%;}
 @media (min-width:600px){ .container{padding:30px; } }
-@media (max-width:500px){ :root{--scale:.95; } }
+@media (max-width:500px){
+  :root{--scale:.95;}
+  .poster, .srg, .srgbw{margin-bottom:.5rem;}
+}
 </style>
 </head>
 
@@ -113,6 +115,7 @@ p{margin:0.5rem 0;}
   </div> <!-- .container -->
 </body>
 </html>
+
 
 
 

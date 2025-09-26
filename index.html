@@ -42,12 +42,33 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* 리스트가 필요 없을 때 */
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+/* ===== 목록 스타일 수정 (사용자 요청 반영) ===== */
+/* li 항목 간에 여백을 추가합니다. */
+.container li {
+    margin-bottom: 0.75rem; /* 항목 아래쪽에 여백 추가 */
+    line-height: 1.6;
 }
+
+/* ol 리스트의 숫자가 밀리지 않도록 조정합니다. */
+ol {
+    padding-left: 20px;
+    list-style-type: decimal;
+}
+/* ul 리스트의 기본 기호를 제거하고 ◾로 대체합니다. */
+ul {
+    padding-left: 20px; /* 들여쓰기 유지 */
+    list-style: none; /* 기본 기호 제거 */
+}
+/* <ul> 태그의 <li> 앞에 ◾ 기호를 삽입합니다. */
+ul li::before {
+    content: "◾";
+    color: #ffb200; /* 기호 색상 (주황색 계열) */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em; /* 기호가 차지하는 공간 확보 */
+    margin-left: -1em; /* 기호를 왼쪽으로 밀어서 들여쓰기 라인에 맞춤 */
+}
+
 
 /* 모바일용 조정 */
 @media (max-width: 500px) {
@@ -106,15 +127,13 @@ p {
     font-size: 1.375rem;
     margin-bottom: 1rem;
 }
-
-/* 🔥 유튜브 영상 컨테이너 스타일 (가장 안정적인 반응형 방식으로 복구) 🔥 */
 .video-wrapper {
     position: relative;
     width: 100%;
     max-width: 700px;
     margin: auto;
-    padding-bottom: 56.25%; /* 16:9 비율 (9/16 = 0.5625) */
-    height: 0; /* 높이를 0으로 설정하여 padding-bottom이 높이를 결정하도록 함 */
+    padding-bottom: 56.25%;
+    height: 0;
     overflow: hidden;
 }
 .video-wrapper iframe {
@@ -144,6 +163,21 @@ p {
                 <small>입퇴실 조건은 별도로 안내해드려요!</small>
             </li>
         </ul>
+        
+        <h2><i class="fas fa-exclamation-triangle" style="margin-right: 10px; color: #ffb200;"></i> 일반 주의사항</h2> 
+        <ol>
+            <li>신발을 벗고 이용해주세요. <strong>슬리퍼</strong>는 실내와 테라스 전용이에요!</li>
+            <li>건물 내,외부 <strong>불 사용 금지</strong>입니다. 전자담배 포함 흡연 금지 구역이니 흡연은 실외에서 해주세요!</li>
+            <li>기준인원(36개월 초과=1인)은 이용시간 동안의 최대 방문 인원을 기준으로 해요. 인원 초과시 1인당 10,000원 추가돼요.<br>* 잠시 방문도 인원 수에 포함되고, 인원 교대는 불가해요!</li>
+            <li>인원 변동이 있으실 경우 입실 전(이용시간 전)에 말씀해 주세요. 이용 시간 이후에 말씀하시면 추가 인원에 대한 환불은 불가해요!</li>
+            <li>실내 소품 및 집기류 파손시 바로 연락 부탁드려요 :) 통보시 물품가액, 미통보시 물품가액의 2배가 배상 정책이에요! 안전한 이용 부탁드려요 :)</li>
+            <li>범죄 예방 및 화재 예방, 고객 안전 및 시설 보호 등을 위해 24시간 CCTV가동 중이에요. 그 외 용도로는 일체 열람 및 저장하지 않아요!</li>
+            <li>보증금이 있으니 예약 시 참고해주세요! 보증금 환급은 보증금 환급 조건에 충족하면, 이용일 기준 차주 화요일에 일괄 환급해 드려요.<br>* 보증금 환급 조건은 예약 시, 별도로 안내해 드려요!</li>
+            <li>결제완료 후, 공간이용 동의 및 보증금 입금이 완료되어야 예약 확정 처리돼요. 안내 이후 2시간 이내로 동의서 작성 및 보증금 입금이 되지 않으면 예약 취소 처리돼요 :-(</li>
+            <li>예약 변경은 이용일 기준 8일 전까지만 가능하며, 예약 취소의 경우 취소 일자별 환불 금액이 상이해요.<br>* 질병 감염, 불가피한 사유 등도 동일하게 적용돼요!</li>
+            <li>미성년자는 저녁 10시 이후부터 이용이 불가해요. **미성년자의 경우, 예약 전에 먼저 말씀해 주세요!** 말씀 안 해주셔서 발생한 문제는 일체 책임지지 않아요!</li>
+        </ol>
+
 
         <h2><i class="fas fa-microphone" style="margin-right: 10px; color: #ffb200;"></i> 노래방 / OTT 서비스 이용안내</h2>
         <ul>

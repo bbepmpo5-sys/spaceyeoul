@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* ===== 전역 설정 (중복 코드 정리) ===== */
+/* ===== 전역 설정 ===== */
 :root {
     --scale: 1;
     font-size: calc(100% * var(--scale));
@@ -32,14 +32,13 @@ body {
     box-sizing: border-box;
 }
 
-/* ===== 이미지 (CSS 문법 오류 수정 및 transform:scale 제거) ===== */
+/* ===== 이미지 ===== */
 .poster,
 .srg,
 .srgbw {
     display: block;
     width: 100%;
     height: auto;
-    /* transform:scale(0.5) 오류 및 의도 불명확으로 제거. 원한다면 1.0으로 설정 */
     margin-bottom: 0.5rem;
 }
 
@@ -67,7 +66,7 @@ ul {
 h1 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    text-align: center; /* h1 가운데 정렬 추가 */
+    text-align: center;
 }
 h2 {
     font-size: 1.375rem;
@@ -75,7 +74,7 @@ h2 {
     color: #111;
     display: flex;
     align-items: center;
-    border-left: 5px solid #ffb200; /* 이전 코드에서 제거되었던 스타일 복구 */
+    border-left: 5px solid #ffb200;
     padding-left: .5em;
 }
 p {
@@ -107,14 +106,15 @@ p {
     font-size: 1.375rem;
     margin-bottom: 1rem;
 }
+
+/* 🔥 유튜브 영상 컨테이너 스타일 (가장 안정적인 반응형 방식으로 복구) 🔥 */
 .video-wrapper {
     position: relative;
     width: 100%;
     max-width: 700px;
     margin: auto;
-    /* padding-bottom: 56.25%; aspect-ratio로 대체 가능 */
-    aspect-ratio: 16/9;
-    height: 0; /* aspect-ratio 사용 시 필요 없음 */
+    padding-bottom: 56.25%; /* 16:9 비율 (9/16 = 0.5625) */
+    height: 0; /* 높이를 0으로 설정하여 padding-bottom이 높이를 결정하도록 함 */
     overflow: hidden;
 }
 .video-wrapper iframe {

@@ -82,8 +82,32 @@
       <li>전자담배를포함한 모든 흡연적발시 사설업체 청소 비용 청구됩니다.</li>
     </ul>
 
+    
     <h2> 🗑️쓰레기 </h2>
-  <img class="쓰레기 봉지"
+  <style>
+    /* ── 1. 기본 레이아웃 ── */
+    :root{--scale:1; font-size:calc(100% * var(--scale));}
+    body{margin:0; font-family:'Noto Sans KR',sans-serif; background:#f8f8f8;}
+    .container{max-width:900px; width:90vw; margin:0 auto; padding:20px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.05);}
+    h1{font-size:1.8rem; margin-bottom:1rem;}
+    h2{font-size:1.375rem; margin:2rem 0 .5rem; color:#111; display:flex; align-items:center;}
+    h2::before{content:'※'; margin-right:0.4rem; font-size:1rem; color:#c00;}
+    p{margin:0.5rem 0;}
+    .note{background:#e9f7ef; padding:.75rem 1rem; border-left:4px solid #3c9; margin:2rem 0;}
+    .warning{color:#c00;}
+    .warning-list li{margin-bottom:.75rem;}
+    .warning-list small{display:block; margin-top:.25rem; color:#555;}
+    .poster{width:100%; height:auto; margin-bottom:2rem;}
+    .hero{width:100%; height:auto; margin-bottom:2rem;}
+    .warning-list li > a{display:block; word-break:break-all; overflow-wrap:break-word;}
+    .youtube-footer{padding:2rem 1rem; background:#fafafa; text-align:center;}
+    .youtube-title{font-size:1.375rem; margin-bottom:1rem;}
+    .video-wrapper{position:relative; width:100%; max-width:700px; margin:auto; padding-bottom:56.25%; height:0; overflow:hidden;}
+    .video-wrapper iframe{position:absolute; top:0; left:0; width:100%; height:100%;}
+    @media (min-width:600px){.container{padding:30px;}}
+    @media (max-width:500px){:root{--scale:.95;}}
+  </style>
+    <img class="쓰레기 봉지"
        src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EA%B1%B8%EB%A0%A4%EC%9E%88%EB%8A%94%EC%82%AC%EC%A7%84.jpg?raw=true"
        alt="쓰봉 걸려있는사">
     <ul>
@@ -114,6 +138,7 @@
   </div> <!-- .container -->
 </body>
 </html>
+
 
 
 

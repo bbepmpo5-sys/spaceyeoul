@@ -16,8 +16,8 @@
 body {
     margin: 0;
     font-family: 'Noto Sans KR', sans-serif;
-    /* 줄 간격 1.2로 최소화 */
-    line-height: 1.2; 
+    /* 🔥 줄 간격을 1.2에서 1.1로 최소화했습니다. 🔥 */
+    line-height: 1.1; 
     background: #f8f8f8;
     color: #333;
 }
@@ -41,18 +41,15 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* 🔥 쓰레기 이미지 컨테이너 (표 테두리) 🔥 */
+/* 쓰레기 이미지 컨테이너 (표 테두리) */
 .trash-images-row {
     display: flex;
     justify-content: space-between;
-    /* 이미지 간 간격 */
     gap: 20px; 
     margin-bottom: 1rem;
     
     border: 1px solid black; 
-    /* 🔥 이미지와 테두리 사이의 여백 (간격을 10px로 조정) 🔥 */
     padding: 10px; 
-    /* 패딩까지 너비에 포함되도록 설정 */
     box-sizing: border-box;
 }
 
@@ -60,9 +57,6 @@ body {
 .srg,
 .srgbw {
     display: block;
-    /* 🔥 50:50 비율로 꽉 채우기 위해 width 계산 수정: 
-       (전체 너비 - gap) / 2 = 
-       calc(50% - 10px) (컨테이너 padding 10px과 gap 20px을 고려하여 조정) 🔥 */
     width: calc(50% - 10px); 
     flex-shrink: 0;
     
@@ -79,19 +73,21 @@ body {
 
 /* ===== 목록 스타일 ===== */
 .container li {
-    margin-bottom: 0.75rem; 
+    /* 🔥 목록 항목 간 여백을 0.75rem에서 0.5rem으로 줄였습니다. 🔥 */
+    margin-bottom: 0.5rem; 
 }
 
+/* ol 리스트의 숫자가 밀리지 않도록 조정합니다. */
 ol {
     padding-left: 20px;
     list-style-type: decimal;
 }
-
+/* ul 리스트의 기본 기호를 제거하고 ◾로 대체합니다. */
 ul {
     padding-left: 20px; 
     list-style: none; 
 }
-
+/* <ul> 태그의 <li> 앞에 ◾ 기호를 삽입합니다. */
 ul li::before {
     content: "◾";
     color: #ffb200; 
@@ -147,7 +143,8 @@ h2 + ul, h2 + ol {
 }
 
 p {
-    margin: .5rem 0;
+    /* 🔥 일반 단락 세로 여백을 0.5rem에서 0.25rem으로 줄였습니다. 🔥 */
+    margin: .25rem 0;
 }
 .note {
     background: #e9f7ef;

@@ -6,31 +6,52 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 <style>
 :root { --scale:1; font-size:calc(100% * var(--scale)); }
+
 body { margin:0; font-family:'Noto Sans KR',sans-serif; background:#f8f8f8; }
+
 .container {
-  max-width:900px; width:90vw; margin:0 auto; padding:20px; background:#fff;
+  max-width:900px; width:90vw; margin:0 auto;
+  padding:20px;                 /* 기준(대기)  */
+  background:#fff;
   box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
+
+/*----------------- 공백 최소화 -----------------*/
+.poster,
+.srg,
+.srgbw{
+  display:block;          /* 이미지가 자연스럽게 컨테이너 폭에 맞춤 */
+  width:100%;             /* .container 폭과 완전 일치 */
+  height:auto;
+  transform:scale(0.5);
+  transform-origin:top left;
+  margin-bottom:0.5rem;   /* 사진 아래쪽 최소 여백 (대기) */
+}
+
+/* 리스트가 필요 없을 때 */
+ul { margin:0; padding:0; list-style:none; }
+
+/* 모바일용 조정 */
+@media (max-width:500px){
+  :root{--scale:.95;}          /* 글자 크기 */
+  .container{padding:10px;}     /* 컨테이너 좌우 여백 10px */
+  .poster, .srg, .srgbw{margin-bottom:0.25rem;}  /* 사진 아래쪽 여백 감소 */
+}
+ 
+/* 나머지 기존 스타일은 그대로 두면 됩니다. */
 h1{font-size:1.8rem; margin-bottom:1rem;}
 h2{font-size:1.375rem; margin:2rem 0 .5rem; color:#111; display:flex; align-items:center;}
-p{margin:0.5rem 0;}
+p{margin:.5rem 0;}
 .note{background:#e9f7ef; padding:.75rem 1rem; border-left:4px solid #3c9; margin:2rem 0;}
 .warning{color:#c00;}
 .warning-list li{margin-bottom:.75rem;}
 .warning-list small{display:block; margin-top:.25rem; color:#555;}
-.poster{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:1rem;}
-.srg{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:1rem;}
-.srgbw{display:block;width:100%;height:auto;transform:scale(0.5);transform-origin:top left;margin-bottom:1rem;}
 .youtube-footer{padding:2rem 1rem; background:#fafafa; text-align:center;}
 .yt-title{font-size:1.375rem; margin-bottom:1rem;}
 .video-wrapper{position:relative; width:100%; max-width:700px; margin:auto; padding-bottom:56.25%; height:0; overflow:hidden;}
 .video-wrapper iframe{position:absolute; top:0; left:0; width:100%; height:100%;}
-@media (min-width:600px){ .container{padding:30px; } }
-@media (max-width:500px){
-  :root{--scale:.95;}
-  .poster, .srg, .srgbw{margin-bottom:.5rem;}
-}
 </style>
+
 </head>
 
 
@@ -115,6 +136,7 @@ p{margin:0.5rem 0;}
   </div> <!-- .container -->
 </body>
 </html>
+
 
 
 

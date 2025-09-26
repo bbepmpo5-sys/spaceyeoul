@@ -91,12 +91,66 @@ li{margin-bottom:.5em;}
 </h2> 배려해주세요~!
 <p>저희는 모두를 위한 공간이니, 불, 물, 음식물 등 다른 사람에게 피해를 주는 모든 행동은 삼가 주세요.</p>
 
+ <!-- 1️⃣  footer(혹은 body의 맨 밑)에 붙여넣기 -->
+<div class="youtube-footer">
+  <h3 class="youtube-title">
+    세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요
+  </h3>
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/VAakquNET-M?rel=0&amp;controls=1&amp;loop=1&amp;playlist=VAakquNET-M"
+      title="세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- 2️⃣  페이지 또는 별도의 CSS 파일에 넣을 스타일 -->
+<style>
+  /* 기본 레이아웃 ---------------------------------------------------------- */
+  .youtube-footer{
+    padding: 2rem 1rem;               /* 위/아래 여백 */
+    background-color:#fafafa;        /* 예시 배경색 – 필요에 따라 바꿔주세요 */
+    text-align:center;               /* 제목과 영상 가운데 정렬 */
+  }
+
+  /* 제목 스타일 ----------------------------------------------------------- */
+  .youtube-title{
+    font-size:1.375rem;              /* 22 px 정도 */
+    margin-bottom:1rem;              /* 영상과의 간격 */
+    color:#333;                      /* 글자 색, 필요 시 바꾸기 */
+  }
+
+  /* 반응형 wrapper -------------------------------------------------------- */
+  .video-wrapper{
+    position:relative;
+    width:100%;
+    max-width:700px;                 /* 고정폭 제한(필요 없으면 삭제) */
+    margin:auto;                     /* 가운데 정렬 */
+    padding-bottom:56.25%;           /* 16:9 비율 : 9/16 = 0.5625 = 56.25% */
+    height:0;
+    overflow:hidden;
+  }
+  .video-wrapper iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+</style>
+ 
+
 <p class="note">위 내용은 사전 공지 없이 언제든지 변경될 수 있습니다.</p>
 
 </div> <!-- .container -->
 
 </body>
 </html>
+
 
 
 

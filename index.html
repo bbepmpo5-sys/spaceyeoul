@@ -2,204 +2,197 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>주의사항 &amp; 안내</title>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-/* ===== 전역 설정 ===== */
-:root{ --scale:1; font-size:calc(100% * var(--scale)); }
-body{ margin:0; font-family:'Noto Sans KR',sans-serif; background:#f8f8f8; }
+/* ===== 전역 설정 (중복 코드 정리) ===== */
+:root {
+    --scale: 1;
+    font-size: calc(100% * var(--scale));
+}
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    background: #f8f8f8;
+    color: #333;
+}
 
 /* ===== 컨테이너 ===== */
-.container{
-  max-width:900px;
-  width:90vw;               /* 모바일 시 90% 폭이 기준 */
-  margin:0 auto;            /* 가로 중앙 정렬 */
-  padding:20px;             /* 안쪽 여백 (필요에 따라 조절) */
-  background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-  box-sizing:border-box;    /* padding이 폭을 바꾸지 않게 함 */
-}
-
-/* ===== 이미지 ===== */
-.poster,
-.srg,
-.srgbw{
-  display:block;            /* block 으로 인라인 스페이스 제거 */
-  width:100%;               /* 컨테이너 폭에 딱 맞춤 */
-  height:auto;
-  transform:scale(0.5
-
-:root { --scale:1; font-size:calc(100% * var(--scale)); }
-
-body { margin:0; font-family:'Noto Sans KR',sans-serif; background:#f8f8f8; }
-
 .container {
-  max-width:900px; width:90vw; margin:0 auto;
-  padding:20px;                 /* 기준(대기)  */
-  background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
+    max-width: 900px;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    box-sizing: border-box;
 }
 
-/*----------------- 공백 최소화 -----------------*/
+/* ===== 이미지 (CSS 문법 오류 수정 및 transform:scale 제거) ===== */
 .poster,
 .srg,
-.srgbw{
-  display:block;          /* 이미지가 자연스럽게 컨테이너 폭에 맞춤 */
-  width:100%;             /* .container 폭과 완전 일치 */
-  height:auto;
-  transform:scale(0.5);
-  transform-origin:top left;
-  margin-bottom:0.5rem;   /* 사진 아래쪽 최소 여백 (대기) */
+.srgbw {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* transform:scale(0.5) 오류 및 의도 불명확으로 제거. 원한다면 1.0으로 설정 */
+    margin-bottom: 0.5rem;
 }
 
 /* 리스트가 필요 없을 때 */
-ul { margin:0; padding:0; list-style:none; }
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
 /* 모바일용 조정 */
-@media (max-width:500px){
-  :root{--scale:.95;}          /* 글자 크기 */
-  .container{padding:10px;}     /* 컨테이너 좌우 여백 10px */
-  .poster, .srg, .srgbw{margin-bottom:0.25rem;}  /* 사진 아래쪽 여백 감소 */
-}
- 
-/* 나머지 기존 스타일은 그대로 두면 됩니다. */
-h1{font-size:1.8rem; margin-bottom:1rem;}
-h2{font-size:1.375rem; margin:2rem 0 .5rem; color:#111; display:flex; align-items:center;}
-p{margin:.5rem 0;}
-.note{background:#e9f7ef; padding:.75rem 1rem; border-left:4px solid #3c9; margin:2rem 0;}
-.warning{color:#c00;}
-.warning-list li{margin-bottom:.75rem;}
-.warning-list small{display:block; margin-top:.25rem; color:#555;}
-.youtube-footer{padding:2rem 1rem; background:#fafafa; text-align:center;}
-.yt-title{font-size:1.375rem; margin-bottom:1rem;}
-.video-wrapper{position:relative; width:100%; max-width:700px; margin:auto; padding-bottom:56.25%; height:0; overflow:hidden;}
-.video-wrapper iframe{position:absolute; top:0; left:0; width:100%; height:100%;}
-:root{  /* 기존: --scale: 1; */
-  --scale: 2;   /* 2× 확대 */
-}
-.srg, .srgbw{
-  display:block;
-  width:100%;          /* 가로는 그대로 */
-  /* 세로만 50 % 축소 */
-  transform:scaleY(0.5);
-  transform-origin:top;   /* 위쪽을 기준으로 축소 */
-}
-/* 이미지와 동일한 가로폭에 맞추기 */
-.video-wrapper{
-  width:100%;              /* .container 안에서 100 % 으로 차지 */
-  aspect-ratio:16/9;       /* 16:9 비율 유지 (padding‑bottom 대신 사용) */
-}
-/* 만약 iframe 안에서도 가로폭이 더 커지는 경우 아래를 추가 */
-.video-wrapper iframe{
-  width:100%;
-  height:auto;             /* 자동 높이 조정 */
+@media (max-width: 500px) {
+    :root {
+        --scale: .95;
+    }
+    .container {
+        padding: 10px;
+    }
+    .poster, .srg, .srgbw {
+        margin-bottom: 0.25rem;
+    }
 }
 
+/* 나머지 기존 스타일 */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center; /* h1 가운데 정렬 추가 */
+}
+h2 {
+    font-size: 1.375rem;
+    margin: 2rem 0 .5rem;
+    color: #111;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid #ffb200; /* 이전 코드에서 제거되었던 스타일 복구 */
+    padding-left: .5em;
+}
+p {
+    margin: .5rem 0;
+}
+.note {
+    background: #e9f7ef;
+    padding: .75rem 1rem;
+    border-left: 4px solid #3c9;
+    margin: 2rem 0;
+}
+.warning {
+    color: #c00;
+}
+.warning-list li {
+    margin-bottom: .75rem;
+}
+.warning-list small {
+    display: block;
+    margin-top: .25rem;
+    color: #555;
+}
+.youtube-footer {
+    padding: 2rem 1rem;
+    background: #fafafa;
+    text-align: center;
+}
+.yt-title {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+}
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    /* padding-bottom: 56.25%; aspect-ratio로 대체 가능 */
+    aspect-ratio: 16/9;
+    height: 0; /* aspect-ratio 사용 시 필요 없음 */
+    overflow: hidden;
+}
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 </style>
-
 </head>
 
-
 <body>
-  <!-- 상단에 “주의사항 & 안내” -->
-  <div class="container">
-    <h1>주의사항 &amp; 안내</h1>
+    <div class="container">
+        <h1>주의사항 &amp; 안내</h1>
 
-    <h2>🚩공간여울 위치</h2>
-    <!-- 위치 사진 -->
-    <img class="poster"
-         src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%9C%84%EC%B9%98%EC%82%AC%EC%A7%84.png?raw=true"
-         alt="위치 사진">
-    <ul class="warning-list">
-      <li><strong>서울시 마포구 동교로 242, 4층 5층 단독사용</strong></li>
-      <li><a href="https://new.smartplace.naver.com/bizes/booking/1431058?bookingBusinessId=1431058"
-             target="_blank" rel="noopener noreferrer">공간여울 네이버지도</a></li>
-      <li>
-        다음 사람도 정시에 입실하여 ‘공간여울’을 즐길 수 있도록 <strong>퇴실시간</strong>을 준수해주세요! 정리 후 퇴실시간 10분 이내 퇴실 부탁드려요!<br>
-        <small>입퇴실 조건은 별도로 안내해드려요!</small>
-      </li>
-    </ul>
+        <h2><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: #ffb200;"></i> 공간여울 위치</h2>
+        <img class="poster"
+            src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%9C%84%EC%B9%98%EC%82%AC%EC%A7%84.png?raw=true"
+            alt="위치 사진">
+        <ul class="warning-list">
+            <li><strong>서울시 마포구 동교로 242, 4층 5층 단독사용</strong></li>
+            <li><a href="https://new.smartplace.naver.com/bizes/booking/1431058?bookingBusinessId=1431058"
+                    target="_blank" rel="noopener noreferrer">공간여울 네이버지도</a></li>
+            <li>
+                다음 사람도 정시에 입실하여 ‘공간여울’을 즐길 수 있도록 <strong>퇴실시간</strong>을 준수해주세요! 정리 후 퇴실시간 10분 이내 퇴실 부탁드려요!<br>
+                <small>입퇴실 조건은 별도로 안내해드려요!</small>
+            </li>
+        </ul>
 
-    <!-- 노래방 / OTT 서비스 이용안내(※) -->
-    <h2>🎤노래방 / OTT 서비스 이용안내</h2>
-    <ul>
-      <li> 사용 메뉴얼은 스피커 옆에 있어요! 리모컨들은 책상 위에 있으니, 리모컨 뒷면 확인하시어 필요에 맞게 사용해주세요 </li>
-      <li> 넷플릭스 이외 OTT는 개인 계정으로 이용해 주세요:)  </li>
-    </ul>
+        <h2><i class="fas fa-microphone" style="margin-right: 10px; color: #ffb200;"></i> 노래방 / OTT 서비스 이용안내</h2>
+        <ul>
+            <li> 사용 메뉴얼은 스피커 옆에 있어요! 리모컨들은 책상 위에 있으니, 리모컨 뒷면 확인하시어 필요에 맞게 사용해주세요 </li>
+            <li> 넷플릭스 이외 OTT는 개인 계정으로 이용해 주세요:) </li>
+        </ul>
 
-    <!-- 주차안내(※ 추가) -->
-    <h2>🚗주차안내</h2>
-    <ul>
-      <li> 외부 주차공간이 없습니다. 차량이 필요할 시 인근 공용주차장을 이용해 주세요.</li>
-    </ul>
-  
-    <h2>👞슬리퍼 </h2>
-    <ul>
-      <li>신발을 벗고 이용해주세요. <strong>슬리퍼</strong>는 실내와 테라스 전용이에요!</li>
-      <li>테라스는 슬리퍼 착용후 이동/ 실내에서는 편하신대로 신으셔도 안 신으셔도 됩니다.</li>
-    </ul>
+        <h2><i class="fas fa-car" style="margin-right: 10px; color: #ffb200;"></i> 주차안내</h2>
+        <ul>
+            <li> 외부 주차공간이 없습니다. 차량이 필요할 시 인근 공용주차장을 이용해 주세요.</li>
+        </ul>
 
-    <h2> 🚬흡연 관련 안내 </h2>
-     <ul>
-      <li>실내 모든 공간에서 금연입니다. (전자담배 포함)</li>
-      <li>1층 외부에서 흡연이 가능합니다!</li>
-      <li>전자담배를포함한 모든 흡연적발시 사설업체 청소 비용 청구됩니다.</li>
-    </ul>
+        <h2><i class="fas fa-shoe-prints" style="margin-right: 10px; color: #ffb200;"></i> 슬리퍼 </h2>
+        <ul>
+            <li>신발을 벗고 이용해주세요. <strong>슬리퍼</strong>는 실내와 테라스 전용이에요!</li>
+            <li>테라스는 슬리퍼 착용후 이동/ 실내에서는 편하신대로 신으셔도 안 신으셔도 됩니다.</li>
+        </ul>
 
-    <h2> 🗑️쓰레기 </h2>
+        <h2><i class="fas fa-smoking-ban" style="margin-right: 10px; color: #ffb200;"></i> 흡연 관련 안내 </h2>
+        <ul>
+            <li>실내 모든 공간에서 금연입니다. (전자담배 포함)</li>
+            <li>1층 외부에서 흡연이 가능합니다!</li>
+            <li>전자담배를 포함한 모든 흡연 적발 시 **사설 업체 청소 비용 10만원이 별도 청구**됩니다.</li>
+        </ul>
 
-    <ul>
-    <img class="srg"
-       src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EA%B1%B8%EB%A0%A4%EC%9E%88%EB%8A%94%EC%82%AC%EC%A7%84.jpg?raw=true진">
-    </ul>
-    <ul>
-      <li>쓰레기는 입장하실때 있던 검은 봉투에 종류상관없이 버려주세요</li>
-      <li>음식물부터 플라스틱까지 업체에서 분리수거 해드립니다</li>
-      <li>검은 봉투만 밑에 보이는 사진의 위치에 놓아주세요</li>
-    </ul>
-    <ul>
-  <img class="srgbw"
-       src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EB%B0%B0%EC%B6%9C%EC%9C%84%EC%B9%98.jpg?raw=true"
-       alt="쓰봉 배출위치">
-    </ul>
+        <h2><i class="fas fa-trash-alt" style="margin-right: 10px; color: #ffb200;"></i> 쓰레기 </h2>
+        <img class="srg"
+            src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EA%B1%B8%EB%A0%A4%EC%9E%88%EB%8A%94%EC%82%AC%EC%A7%84.jpg?raw=true"
+            alt="쓰레기통">
+        <ul>
+            <li>쓰레기는 입장하실 때 있던 검은 봉투에 종류 상관없이 버려주세요</li>
+            <li>음식물부터 플라스틱까지 업체에서 분리수거 해드립니다</li>
+            <li>검은 봉투만 밑에 보이는 사진의 위치에 놓아주세요</li>
+        </ul>
+        <img class="srgbw"
+            src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/main/%EC%93%B0%EB%B4%89%20%EB%B0%B0%EC%B6%9C%EC%9C%84%EC%B9%98.jpg?raw=true"
+            alt="쓰봉 배출위치">
 
-    
-   <!-- 유튜브 푸터 -->
-    <div class="youtube-footer">
-      <h3 class="youtube-title">
-      세가지 분위기로 즐기는 메인조명
-      </h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/VAakquNET-M?playlist=VAakquNET-M&amp;loop=1"
-                title="세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div> <!-- .container -->
-</body>
+        <div class="youtube-footer">
+            <h3 class="yt-title">
+                세가지 분위기로 즐기는 메인조명
+            </h3>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VAakquNET-M?playlist=VAakquNET-M&amp;loop=1"
+                    title="세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div> </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

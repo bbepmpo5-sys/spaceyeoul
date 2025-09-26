@@ -74,31 +74,27 @@ p{margin:.5rem 0;}
 .yt-title{font-size:1.375rem; margin-bottom:1rem;}
 .video-wrapper{position:relative; width:100%; max-width:700px; margin:auto; padding-bottom:56.25%; height:0; overflow:hidden;}
 .video-wrapper iframe{position:absolute; top:0; left:0; width:100%; height:100%;}
-/* ======== 1) Double all font‑sizes ======== */
-:root {
-  --scale: 2;                     /* 2× the original font‑size */
-  /* NOTE: all other “100% × var(--scale)” rules (font‑size, rem‑units, …) automatically
-             become twice as large.  */
+:root{  /* 기존: --scale: 1; */
+  --scale: 2;   /* 2× 확대 */
+}
+.srg, .srgbw{
+  display:block;
+  width:100%;          /* 가로는 그대로 */
+  /* 세로만 50 % 축소 */
+  transform:scaleY(0.5);
+  transform-origin:top;   /* 위쪽을 기준으로 축소 */
+}
+/* 이미지와 동일한 가로폭에 맞추기 */
+.video-wrapper{
+  width:100%;              /* .container 안에서 100 % 으로 차지 */
+  aspect-ratio:16/9;       /* 16:9 비율 유지 (padding‑bottom 대신 사용) */
+}
+/* 만약 iframe 안에서도 가로폭이 더 커지는 경우 아래를 추가 */
+.video-wrapper iframe{
+  width:100%;
+  height:auto;             /* 자동 높이 조정 */
 }
 
-/* ======== 2) Make the video take the same horizontal width as the images ======== */
-/* The original layout already uses `width:100%` inside `.container`, so no change is
-   required.  The following line guarantees it: */
-.video-wrapper {
-  width: 100%;
-  /* The 16:9 aspect ratio is preserved with the padding‑bottom trick.  */
-}
-
-/* ======== 3) Set .srg and .srgbw to 50 % of the original image height ======== */
-.srg,
-.srgbw {
-  display: block;
-  width: 100%;
-  /* Keep the original horizontal scale.  Scale only the vertical axis: */
-  transform: scaleY(0.5);
-  transform-origin: top;     /* so the image shrinks toward the bottom */
-  /* Keep the previous bottom margin (and any other spacing you want). */
-}
 </style>
 
 </head>
@@ -185,6 +181,7 @@ p{margin:.5rem 0;}
   </div> <!-- .container -->
 </body>
 </html>
+
 
 
 

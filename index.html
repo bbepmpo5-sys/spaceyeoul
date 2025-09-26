@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>주의사항 &amp; 안내</title>
+<title>주의사항 & 안내</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet">
 
 <style>
-/* ── 1. 기본 레이아웃 ────────────────────────────────────────────────── */
-/* root font-size 를 100% 으로 두고, 필요시 변수를 통해 배율 조정 */
+/* ── 1. 기본 레이아웃 ─────────────────────────────────────────────── */
 :root{
-  --scale: 1;         /* 1 = 100%, 1.25 = 125%, 2 = 200% 등 */
+  --scale: 1;          /* 1 = 100% */
   font-size: calc(100% * var(--scale));
 }
 
@@ -24,199 +25,166 @@ body{
 }
 
 /* ── 2. 주 화면 ─────────────────────────────────────────────────────── */
-.hero{
-  width:70%; height:auto; display:block; margin:0 auto;
-}
-
 .container{
-  max-width:900px;   /* 고정값을 유지하지만, 모바일에서는 화면 폭에 따라 줄어들게 */
-  width:90vw;        /* 화면 폭 기준 90% */
+  max-width:900px;      /* 고정값 유지 */
+  width:90vw;           /* 모바일에서 90% 폭 사용 */
   margin:0 auto;
   padding:20px;
   background:#fff;
-  box-shadow:0 0 20px rgba(0,0,0,.1);
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 
-/* 텍스트 스타일 */
-h1{font-size:2rem;color:#222;margin:.5em;text-align:center;}
-h2{font-size:1.4rem;color:#111;margin:1.5em 0 .5em;border-left:5px solid #ffb200;padding-left:.5em;}
-ol, ul{margin-left:1.5em;margin-bottom:1em;}
-li{margin-bottom:.5em;}
-
-/* 경고와 참고 문구 */
-.warning{background:#fffcf4;border-left:5px solid #ff6f60;padding:.5em 1em;margin:1em 0;font-weight:600;color:#a00;}
-.note{background:#e8f4ff;border-left:5px solid #4a89dc;padding:.5em 1em;margin:1em 0;font-weight:600;color:#004;}
-
-/* ── 3. 반응형 메디어 쿼리 ──────────────────────────────────── */
-/* mobile (≤ 600px) - 가장 작은 화면에 맞춰 배율을 낮춰줍니다. */
-@media (max-width:600px){
-  :root{ --scale: 0.8; }  /* 80% 으로 축소  */
-  .container{ padding:15px; } /* 내적 여백 조금 감소 */
+.poster{
+  width:100%;
+  height:auto;
+  margin-bottom:1.5rem;
 }
 
-/* tablet (601px–899px) - 기본 배율 1.0 과 90% 폭을 활용 */
-@media (min-width:601px) and (max-width:899px){
-  :root{ --scale: 0.9; }  /* 90% 으로 조정  */
-  .hero{ width:90%; }
+h1{font-size:1.85rem;}
+h2{font-size:1.375rem; margin:2rem 0 .5rem; color:#111;}
+p{margin:0.5rem 0;}
+
+.warning{color:#c00;}
+.note{
+  background:#e9f7ef;
+  padding:0.75rem 1rem;
+  border-left:4px solid #3c9;
+  margin:2rem 0;
 }
 
-/* desktop (≥ 900px) - 데스크탑 화면은 원래 200% 배율(32px)로 표시 */
-@media (min-width:900px){
-  :root{ --scale: 2; }
-  .hero{ width:60%; }
+.poster, .youtube-footer{
+  max-width:100%;
+  height:auto;
+}
+
+/* ── 3. 메인 포스트 스타일 ────────────────────────────────────────────── */
+.poster{margin-bottom:2rem;}
+
+.poster-title{
+  font-size:1.2rem;
+  margin:1rem 0 .5rem;
+  color:#444;
+}
+
+/* ── 4. 리스트/메시지 스타일 ─────────────────────────────────────── */
+.warning-list{margin-bottom:2rem;}
+.warning-list li{margin-bottom:0.75rem;}
+.warning-list p{margin:0.5rem 0;}
+.warning-list small{display:block; margin-top:.25rem; color:#555;}
+
+/* ── 5. 반응형(유튜브) 영역 ─────────────────────────────────────── */
+.youtube-footer{
+  padding:2rem 1rem;
+  background:#fafafa;
+  text-align:center;
+}
+.youtube-title{
+  font-size:1.375rem;
+  margin-bottom:1rem;
+  color:#333;
+}
+.video-wrapper{
+  position:relative;
+  width:100%;
+  max-width:700px;
+  margin:auto;
+  padding-bottom:56.25%;   /* 16:9 비율 (9/16) */
+  height:0;
+  overflow:hidden;
+}
+.video-wrapper iframe{
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+}
+
+/* ── 6. 반응형(스크린) ─────────────────────────────────────────────── */
+@media (min-width:600px){
+  .container{padding:30px;}
+  h1{font-size:2rem;}
+}
+@media (max-width:500px){
+  :root{--scale:.95;}
 }
 </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>주의사항</h1>
-    <h2>⚠️ 중요한 알림</h2>
-    <p class="warning">이곳은 중요한 경고문구입니다.</p>
-    <p class="note">이곳은 참고 문구입니다.</p>
-    <!-- 예시 아이콘 -->
-    <p><i class="fa-solid fa-mobile-screen-button"></i> 모바일에서도 보기 좋게 적합화 시도!</p>
-  </div>
-</body>
-</html>
-
-
-    
-<h1>주의사항 &amp; 안내</h1>
-
-<!--  여기서 로컬 파일 대신 GitHub Raw 이미지 주소를 사용합니다.  -->
-<img src="https://github.com/bbepmpo5-sys/spaceyeoul/blob/316d1074bf0ce776f5806cda312e3bb19604214e/%EC%9E%85%EC%9E%A5%EB%B7%B02.png?raw=true"
-     alt="입장뷰2.png" class="hero">
-
 <div class="container">
 
- <h2>공간여울 위치</h2>
-<ul>
-  <li> 서울시 마포구 동교로 242 , 4층 5층 단독사용
-  <li> <a href="https://new.smartplace.naver.com/bizes/booking/1431058?bookingBusinessId=1431058"
-          target="_blank" rel="noopener noreferrer">
+  <h1>주의사항 & 안내</h1>
+
+  <!-- 위치 사진 (서울시 마포구 동교로 242) -->
+  <img class="poster"
+       src="https://i.imgur.com/9YV7G2K.jpg"
+       alt="공간여울 위치 사진">
+
+  <!-- --------------------- 공간여울 위치 --------------------- -->
+  <h2>공간여울 위치</h2>
+  <ul>
+    <li> <strong>서울시 마포구 동교로 242, 4층 5층 단독사용</strong></li>
+    <li><a href="https://new.smartplace.naver.com/bizes/booking/1431058?bookingBusinessId=1431058"
+           target="_blank"
+           rel="noopener noreferrer">
           https://new.smartplace.naver.com/bizes/booking/1431058?bookingBusinessId=1431058
-        </a>
-  
-<u1>
-  <li>다음 사람도 정시에 입실하여 ‘공간여울’을 즐길 수 있도록 <strong>퇴실시간</strong>을 준수해주세요! 정리 후 퇴실시간 10분 이내 퇴실 부탁드려요!* <br><small>입퇴실 조건은 별도로 안내해드려요!</small></li>
+    </a></li>
 
-  <li>신발을 벗고 이용해주세요. <strong>슬리퍼</strong>는 실내와 테라스 전용이에요!</li>
+    <!-- 다음 사람도 정시에 입실하여…  -->
+    <li>
+      다음 사람도 정시에 입실하여 ‘공간여울’을 즐길 수 있도록 <strong>퇴실시간</strong>을 준수해주세요! 정리 후 퇴실시간 10분 이내 퇴실 부탁드려요!*<br>
+      <small>입퇴실 조건은 별도로 안내해드려요!</small>
+    </li>
+    <li>신발을 벗고 이용해주세요. <strong>슬리퍼</strong>는 실내와 테라스 전용이에요!</li>
+    <li>테라스는 슬리퍼 착용후 이동/ 실내에서는 편하신대로 신으셔도 안 신으셔도 됩니다.</li>
+    <li>…(원하시는 만큼 나머지 항목을 입력 가능합니다) …</li>
+  </ul>
 
-  <li>건물 내,외부 <strong>불 사용 금지</strong>입니다. 전자담배 포함 흡연 금지 구역이니 흡연은 실외에서 해주세요!</li>
+  <!-- --------------------- 노래방 / OTT 서비스 안내 --------------------- -->
+  <h2>노래방 / OTT 서비스 사용안내</h2>
+  <p>사용 메뉴얼은 스피커 옆에 있어요! 리모컨들은 책상 위에 있으니, 리모컨 뒷면 확인하시어 필요에 맞게 사용해주세요 :) </p>
+  <p>※넷플릭스 이외 OTT는 개인 계정으로 이용해 주세요 :- </p>
 
-  <li>기준인원(36개월 초과=1인)은 이용시간 동안의 최대 방문 인원을 기준으로 해요. 인원 초과시 1인당 10,000원 추가돼요.<br>* 잠시 방문도 인원 수에 포함되고, 인원 교대는 불가해요!</li>
+  <!-- --------------------- 주차안내 ------------------------------------ -->
+  <h2>주차안내</h2>
+  <p>주차는 불가하오니, 대중교통이나 주변 공용주차장 이용해주세요!.</p>
 
-  <li>인원 변동이 있으실 경우 입실 전(이용시간 전)에 말씀해 주세요. 이용 시간 이후에 말씀하시면 추가 인원에 대한 환불은 불가해요!</li>
+  <!-- --------------------- 슬리퍼 안내 --------------------------------- -->
+  <h2>슬리퍼</h2>
+  <ul>
+    <li>출입문 왼쪽 신발장에 비치된 테라스용 슬리퍼를 착용해주시고, 슬리퍼 착용하여외부 이동은 삼가해 주세요.</li>
+    <li>실내에서는 필요에 따라 신으셔도, 신지 않아도 됩니다.</li>
+  </ul>
 
-  <li>실내 소품 및 집기류 파손시 바로 연락 부탁드려요 :) 통보시 물품가액, 미통보시 물품가액의 2배 청구됩니다! 안전한 이용 부탁드려요 :)</li>
+  <!-- --------------------- 흡연 관련 안내 -------------------------------- -->
+  <h2>흡연 관련 안내</h2>
+  <ul>
+    <li>실내 모든 공간에서 금연입니다. (전자담배 포함)</li>
+    <li>1층 외부에서 흡연이 가능합니다!</li>
+  </ul>
 
-  <li>범죄 예방 및 화재 예방, 고객 안전 및 시설 보호 등을 위해 24시간 CCTV가동 중이에요. 그 외 용도로는 일체 열람 및 저장하지 않아요!</li>
+  <p class="note">
+    배려해주세요~! 저희는 모두를 위한 공간이니, 불, 물, 음식물 등 다른 사람에게 피해를 주는 모든 행동은 삼가 주세요.
+  </p>
 
-  <li>보증금이 있으니 예약 시 참고해주세요! 보증금 환급은 보증금 환급 조건에 충족하면, 이용일 기준 차주 화요일에 일괄 환급해 드려요.<br>* 보증금 환급 조건은 물품파손과 오염여부로 결정됩니다!</li>
+  <p class="note">
+    위 내용은 사전 공지 없이 언제든지 변경될 수 있습니다.
+  </p>
 
-  <li>결제완료 후, 보증금 입금이 완료되어야 예약 확정 처리돼요. 안내 이후 12시간 이내로 보증금 입금이 되지 않으면 예약 취소 처리돼요 :-(
-  </li>
+  <!-- --------------------------------- 유튜브 푸터 --------------------------------- -->
+  <div class="youtube-footer">
+    <h3 class="youtube-title">
+      세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요
+    </h3>
 
-  <li>예약 변경은 이용일 기준 8일 전까지만 가능하며, 예약 취소의 경우 취소 일자별 환불 금액이 상이해요.<br>* 질병 감염, 불가피한 사유 등도 동일하게 적용돼요!</li>
-
-  <li>미성년자는 저녁 10시 이후부터 이용이 불가해요. **미성년자의 경우, 예약 전에 먼저 말씀해 주세요!** 말씀 안 해주셔서 발생한 문제는 일체 책임지지 않아요!</li>
-</u1>
-
-<h2>노래방 / OTT 서비스 사용안내</h2>
-<p>사용 메뉴얼은 스피커 옆에 있어요! 리모컨들은 책상 위에 있으니, 리모컨 뒷면 확인하시어 필요에 맞게 사용해주세요 :)</p>
-<p>※넷플릭스 이외 OTT는 개인 계정으로 이용해 주세요 :-)</p>
-  
-<h2>주차안내</h2>
-<p>주차는 불가하오니, 대중교통이나 주변 공용주차장 이용해주세요!</p>
-
-<h2>슬리퍼</h2>
-<ul>
-  <li>출입문 왼쪽 신발장에 비치된 테라스용 슬리퍼를 착용해주시고, 슬리퍼 착용하여외부 이동은 삼가해 주세요.
-  <li>테라스는 슬리퍼 착용후 이동/ 실내에서는 편하신대로 신으셔도 안 신으셔도 됩니다.
-</u1>
-  
-<h2>흡연 관련 안내</h2>
-<ul>
-<li>실내 모든 공간에서 금연입니다. (전자담배 포함)</li>
-<li>1층 외부에서 흡연 가능합니다!</li>
-</ul>    
-    
-</h2> 배려해주세요~!</h2>
-<ul>
-<p>저희는 모두를 위한 공간이니, 불, 물, 음식물 등 다른 사람에게 피해를 주는 모든 행동은 삼가 주세요.</p>
-</ul>
-  
- <!-- 1️⃣  footer(혹은 body의 맨 밑)에 붙여넣기 -->
-<div class="youtube-footer">
-  <h3 class="youtube-title">
-    세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요
-  </h3>
-
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/VAakquNET-M?rel=0&amp;controls=1&amp;loop=1&amp;playlist=VAakquNET-M"
-      title="세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/VAakquNET-M?playlist=VAakquNET-M&amp;loop=1"
+              title="세가지 분위기의 메인조명 - 스위치를 누를때마다 바뀌어요"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
   </div>
-</div>
-
-<!-- 2️⃣  페이지 또는 별도의 CSS 파일에 넣을 스타일 -->
-<style>
-  /* 기본 레이아웃 ---------------------------------------------------------- */
-  .youtube-footer{
-    padding: 2rem 1rem;               /* 위/아래 여백 */
-    background-color:#fafafa;        /* 예시 배경색 – 필요에 따라 바꿔주세요 */
-    text-align:center;               /* 제목과 영상 가운데 정렬 */
-  }
-
-  /* 제목 스타일 ----------------------------------------------------------- */
-  .youtube-title{
-    font-size:1.375rem;              /* 22 px 정도 */
-    margin-bottom:1rem;              /* 영상과의 간격 */
-    color:#333;                      /* 글자 색, 필요 시 바꾸기 */
-  }
-
-  /* 반응형 wrapper -------------------------------------------------------- */
-  .video-wrapper{
-    position:relative;
-    width:100%;
-    max-width:700px;                 /* 고정폭 제한(필요 없으면 삭제) */
-    margin:auto;                     /* 가운데 정렬 */
-    padding-bottom:56.25%;           /* 16:9 비율 : 9/16 = 0.5625 = 56.25% */
-    height:0;
-    overflow:hidden;
-  }
-  .video-wrapper iframe{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-  }
-</style>
- 
-
-<p class="note">위 내용은 사전 공지 없이 언제든지 변경될 수 있습니다.</p>
 
 </div> <!-- .container -->
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
